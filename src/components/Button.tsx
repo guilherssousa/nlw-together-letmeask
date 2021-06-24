@@ -6,6 +6,6 @@ type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement>
 
 export const Button = (props: ButtonProps) => {
     return (
-        <button className="button" {...props} />
+        <button className='button' {...props} />
     )
 }
