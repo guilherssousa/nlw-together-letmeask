@@ -1,46 +1,88 @@
-# Getting Started with Create React App
+<h1 align="center">
+  <img alt="GamePlay" height="80" title="Plant Manager" src="https://letmeask-be03d.web.app/static/media/logo.a88331cb.svg" />
+</h1>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<p align="center">
+  <img alt="License" src="https://img.shields.io/static/v1?label=license&message=MIT&color=E51C44&labelColor=0A1033">
 
-## Available Scripts
+ <img src="https://img.shields.io/static/v1?label=NLW&message=06&color=E51C44&labelColor=0A1033" alt="NLW 06" />
+</p>
 
-In the project directory, you can run:
 
-### `yarn start`
+![cover](.github/cover.png?style=flat)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## 💻 Projeto
+Aplicativo para lhe ajudar a conectar-se e organiza o momento de diversão e jogar com os amigos. Crie grupos para jogar seus games favoritos com seus amigos com esse App que possui autenticação com Discord.
 
-### `yarn test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## :hammer_and_wrench: Features 
 
-### `yarn build`
+-   [ ] Autenticação Social OAuth2 com servidor do Discord.
+-   [ ] Obtém perfil do usuário cadastro no Discord (username e avatar);
+-   [ ] Lista os servidores do Discord que o usuário faz parte;
+-   [ ] Permite realizar o agendamento de partidas;
+-   [ ] Permite filtrar as partidas por categoria;
+-   [ ] Exibe se a partida foi agendada em um servidor próprio (anfitrião) ou em servidores de outros (convidado);
+-   [ ] Compartilha o convite para ingressar no servidor do usuário;
+-   [ ] Permite redirecionar o usuário para o seu próprio servidor;
+-   [ ] Disponibiliza a função de Logout.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## ✨ Tecnologias
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+-   [ ] React Native
+-   [ ] Typescript
+-   [ ] Expo
+-   [ ] Context API
+-   [ ] Async Storage
+-   [ ] Vector Icons
+-   [ ] React Native Svg e Svg Transform
+-   [ ] Axios
+-   [ ] Gradient colors
+-   [ ] OAuth2 Discord 
+-   [ ] Expo Google Fonts
+-   [ ] React Navigation Stack
+-   [ ] React Native Gesture Handler
+-   [ ] Expo Authentication
+-   [ ] React Native Share
+-   [ ] Deep Link
 
-### `yarn eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## 🔖 Layout
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Você pode visualizar o layout do projeto através [desse link](https://www.figma.com/file/0kv33XYjvOgvKGKHBaiR07/GamePlay-NLW-Together?node-id=58913%3A83). É necessário ter conta no [Figma](http://figma.com/) para acessá-lo.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Executando o projeto
 
-## Learn More
+Utilize o **yarn** ou o **npm install** para instalar as dependências do projeto.
+Em seguida, inicie o projeto.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```cl
+expo start
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Lembre-se de criar o seu App no servidor do Discord para obter as credencias de autenticação. Em seguida, defina no arquivo .env as configurações do seu App (remova o example do arquivo .env.example).
+ 
+ ```cl
+REDIRECT_URI=
+SCOPE=
+RESPONSE_TYPE=
+CLIENT_ID=
+CDN_IMAGE=
+```
+
+
+## 📄 Licença
+
+Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE.md) para mais detalhes.
+
+<br />
+
+<div align="center">
+  <small>Desenvolvido por Rodrigo Gonçalves Santana - Junho/2021</small>
+
+  [![Instagram Badge](https://img.shields.io/badge/-rodrigo.goncalves.s-6633cc?style=flat-square&labelColor=6633cc&logo=instagram&logoColor=white&link=https://www.instagram.com/rodrigo.goncalves.s/)](https://www.instagram.com/rodrigo.goncalves.s/) 
+  [![Linkedin Badge](https://img.shields.io/badge/-Rodrigo%20Gonçalves%20Santana-6633cc?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/rodrigo-gon%C3%A7alves-santana/)](https://www.linkedin.com/in/rodrigo-gon%C3%A7alves-santana/) 
+</div>
