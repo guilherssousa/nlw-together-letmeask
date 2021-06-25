@@ -1,5 +1,6 @@
 import { useState, FormEvent } from 'react'
 import { useParams } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 
 import { useAuth } from '../hooks/useAuth'
 import { useRoom } from '../hooks/useRoom'
@@ -7,6 +8,7 @@ import { useRoom } from '../hooks/useRoom'
 import { database } from '../services/firebase'
 
 import logoImage from '../assets/images/logo.svg'
+import emptyQuestionsImage from '../assets/images/empty-questions.svg'
 
 import { RoomCode } from '../components/RoomCode'
 import { Button } from '../components/Button'
@@ -19,11 +21,18 @@ type RoomParams = {
 }
 
 const Room = () => {
+    const history = useHistory()
     const { user } = useAuth()
     const { id: roomId } = useParams<RoomParams>()
     const [newQuestion, setNewQuestion] = useState('')
 
-    const { title, questions } = useRoom(roomId)
+    const { title, questions, isClosed } = useRoom(roomId)
+
+    if(isClosed) {
+        history.push(`/`, {
+            message: `A sala foi fechada pelo administrador.`
+        })
+    }
 
     async function handleSendQuestion(event: FormEvent) {
         event.preventDefault()
@@ -94,7 +103,7 @@ const Room = () => {
                 </form>
                     
                 <div className='question-list'>
-                    { questions.map(question => (
+                    { questions.length > 0 ? questions.map(question => (
                         <Question
                             key={question.id}
                             content={question.content}
@@ -116,7 +125,12 @@ const Room = () => {
                                 </button>
                             )}
                         </Question>
-                    )) }
+                    )) : (
+                        <div className='no-message'>
+                            <img src={emptyQuestionsImage} alt='Nenhuma mensagem para exibir' />
+                            <p>Nenhuma mensagem para exibir. Envie sua mensagem!</p>
+                        </div>
+                    ) }
                 </div>
             </main>
         </div>

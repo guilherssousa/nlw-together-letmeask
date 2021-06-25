@@ -1,5 +1,6 @@
 import { FormEvent, useState } from 'react'
 import { useHistory } from 'react-router-dom'
+import toast, { Toaster } from 'react-hot-toast'
 
 import { useAuth } from '../hooks/useAuth'
 import { database } from '../services/firebase'
@@ -12,10 +13,22 @@ import { Button } from '../components/Button'
 
 import '../styles/auth.scss'
 
-const Home = () => {
+type HomeProps = {
+    location: {
+        state: {
+            message: string;
+        }
+    }
+}
+
+const Home = ({ location }: HomeProps) => {
     const history = useHistory()
     const { user, signInWithGoogle } = useAuth()
     const [roomCode, setRoomCode] = useState('')
+
+    if(location.state?.message) {
+        toast.success(location.state.message)
+    }
 
     async function handleCreateRoom() {
         if(!user) {
@@ -46,7 +59,10 @@ const Home = () => {
     }
 
     return (
-        <div id="page-auth">
+        <div id='page-auth'>
+            <Toaster
+                position='top-left'
+            />
             <aside>
                 <img src={illustrationImage} alt='Ilustração simbolizando perguntas e respostas' />
                 <strong>Crie salas de Q&amp;A ao-vivo</strong>
@@ -54,13 +70,13 @@ const Home = () => {
             </aside>
 
             <main>
-                <div className="main-content">
+                <div className='main-content'>
                     <img src={logoImage} alt='Letmeask' />
-                    <button onClick={handleCreateRoom} className="create-room">
+                    <button onClick={handleCreateRoom} className='create-room'>
                         <img src={googleIconImage} alt='Logo do Google' />
                         Crie sua sala com o Google
                     </button>
-                    <div className="separator">ou entre em uma sala</div>
+                    <div className='separator'>ou entre em uma sala</div>
                     <form onSubmit={handleJoinRoom}>
                         <input
                             type='text'

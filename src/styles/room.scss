@@ -50,6 +50,24 @@
                 font-size: 14px;
             }
         }
+
+        .no-message {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            > img {
+                max-height: 100px;
+                margin-bottom: 32px;
+            }
+
+            p {
+                font-family: 'Poppins', sans-serif;
+                font-weight: 700;
+                font-size: 18px;
+                color: #737380;
+            }
+        }
     }
 
     form {

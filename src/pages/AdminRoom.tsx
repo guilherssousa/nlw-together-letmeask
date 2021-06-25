@@ -10,6 +10,7 @@ import logoImage from '../assets/images/logo.svg'
 import deleteImage from '../assets/images/delete.svg'
 import checkImage from '../assets/images/check.svg'
 import answerImage from '../assets/images/answer.svg'
+import emptyQuestionsImage from '../assets/images/empty-questions.svg'
 
 import { RoomCode } from '../components/RoomCode'
 import { Button } from '../components/Button'
@@ -60,11 +61,11 @@ const AdminRoom = () => {
                 <div className='content'>
                     <img src={logoImage} alt='letmeask' />
                     <div>
-                        <RoomCode code={roomId} />
                         <Button
                             isOutlined
                             onClick={handleEndRoom}
                         >Encerrar sala</Button>
+                        <RoomCode code={roomId} />
                     </div>
                 </div>
             </header>
@@ -76,7 +77,7 @@ const AdminRoom = () => {
                 </div>
 
                 <div className='question-list'>
-                    { questions.map(question => (
+                    { questions.length > 0 ? questions.map(question => (
                         <Question
                             key={question.id}
                             content={question.content}
@@ -107,7 +108,12 @@ const AdminRoom = () => {
                                 <img src={deleteImage} alt='Remover pergunta' />
                             </button>
                         </Question>
-                    )) }
+                    )) : (
+                        <div className='no-message'>
+                            <img src={emptyQuestionsImage} alt='Nenhuma mensagem para exibir' />
+                            <p>Nenhuma mensagem para exibir.</p>
+                        </div>
+                    ) }
                 </div>
             </main>
         </div>
