@@ -22,7 +22,7 @@ type RoomParams = {
 
 const Room = () => {
     const history = useHistory()
-    const { user } = useAuth()
+    const { user, signInWithGoogle } = useAuth()
     const { id: roomId } = useParams<RoomParams>()
     const [newQuestion, setNewQuestion] = useState('')
 
@@ -32,6 +32,10 @@ const Room = () => {
         history.push(`/`, {
             message: `A sala foi fechada pelo administrador.`
         })
+    }
+
+    async function handleSignIn () {
+        await signInWithGoogle()
     }
 
     async function handleSendQuestion(event: FormEvent) {
@@ -95,7 +99,9 @@ const Room = () => {
                                 </div>
                             )
                             : (
-                                <span>Para enviar uma pergunta, <button>faça seu login.</button></span>
+                                <span>
+                                    Para enviar uma pergunta, <button className="logout" onClick={handleSignIn}>faça seu login.</button>
+                                </span>
                             )
                         }
                         <Button type='submit' disabled={!user}>Enviar pergunta</Button>
